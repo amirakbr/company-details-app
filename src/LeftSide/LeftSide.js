@@ -1,5 +1,5 @@
 function LeftSide({companylist , HandleEdit , HandleDelete}) {
-     let listShow = companylist.map((index)=> index.Name.length >= 1 ? <tr id={companylist.indexOf(index)} className="border-t-2 
+     let listShow = companylist.map((index)=> index.Name.length >= 1 ? <tr key={companylist.indexOf(index)} id={companylist.indexOf(index)} className="border-t-2 
      flex flex-col items-center md:table-row
      md:px-[0rem] px-[1rem]
      rounded-[1rem] animate-appear

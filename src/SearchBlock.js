@@ -5,25 +5,28 @@ function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , com
                key : 'input1' , 
                title : 'Company name:' , 
                placeholder : 'e.g Netflix, Inc' , 
-               type : setCompanyName ,
+               setter : setCompanyName ,
                value : companyName , 
-               validation : () => (event) => {if (!/[aA-zZ , " " , 0-9]/.test(event.key)) {event.preventDefault();}}
+               validation : () => (event) => {if (!/[aA-zZ , " " , 0-9]/.test(event.key)) {event.preventDefault();}} , 
+               type : 'text'
           },
           {
                key : 'input2' , 
                title : 'Company state:' , 
                placeholder : 'e.g Florida' , 
-               type : setCompanyLoc , 
+               setter : setCompanyLoc , 
                value : companyLoc , 
-               validation : () => (event) => {if (!/[aA-zZ , " " , 0-9]/.test(event.key)) {event.preventDefault();}}
+               validation : () => (event) => {if (!/[aA-zZ , " " , 0-9]/.test(event.key)) {event.preventDefault();}} , 
+               type : 'text'
           },
           {
                key : 'input3' , 
                title : 'Company employeed:' , 
                placeholder : 'e.g 20,345' , 
-               type : setCompanyEmployee , 
+               setter : setCompanyEmployee , 
                value : companyEmployee , 
-               validation : () => (event) => {if (!/[0-9]/.test(event.key)) {event.preventDefault();}}
+               validation : () => (event) => {if (!/[0-9]/.test(event.key)) {event.preventDefault();}} ,
+               type : 'number'
           }
      ]
      const inputsEntriesShow = [] ; 
@@ -31,7 +34,7 @@ function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , com
           inputsEntriesShow.push(
                <label className="flex flex-col gap-2 text-primary text-lg font-semibold " key={index.key} >
                     {index.title}
-                    <input type='text' onChange={(e) => {index.type(e.target.value)}} onKeyPress={index.validation()} value={index.value} placeholder={index.placeholder} className="border-[.15rem solid #ccd0d9] p-2 rounded-lg text-base font-medium text-secondary placeholder:text-secondary" style={{border : Number(onStageEdit) >= 0 ? '.15rem solid #20486A' : '.15rem solid #ccd0d9' }} />
+                    <input type={index.type} onChange={(e) => {index.setter(e.target.value)}} onKeyPress={index.validation()} value={index.value} placeholder={index.placeholder} className="border-[.15rem solid #ccd0d9] p-2 rounded-lg text-base font-medium text-secondary placeholder:text-secondary" style={{border : Number(onStageEdit) >= 0 ? '.15rem solid #20486A' : '.15rem solid #ccd0d9' }} />
                </label>
           )
      })
