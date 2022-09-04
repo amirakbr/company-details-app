@@ -12,6 +12,9 @@ module.exports = {
       screens : {
         'lg' : '1000px' , 
         'md' : '700px' , 
+      } , 
+      boxShadow : {
+        'tabel' : '0 0 0 .05rem black' , 
       }
     },
   },

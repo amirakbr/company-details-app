@@ -36,7 +36,8 @@ function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , com
      })
      return (
           <div className="flex flex-col gap-8 p-4">
-               <div className="flex flex-col gap-1 p-4 bg-gray-200">
+               <div className="flex flex-col gap-1 p-4 bg-gray-200
+               text-center md:text-left rounded-[.5rem]">
                     <h1 className="text-primary text-2xl font-bold">
                          Add New Item
                     </h1>

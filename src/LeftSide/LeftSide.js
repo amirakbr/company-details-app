@@ -1,7 +1,8 @@
 function LeftSide({companylist , HandleEdit , HandleDelete}) {
      let listShow = companylist.map((index)=> index.Name.length >= 1 ? <tr id={companylist.indexOf(index)} className="border-t-2 
      border-b-2 flex flex-col items-center md:table-row
-     md:px-[0rem] px-[1rem]">
+     md:px-[0rem] px-[1rem]
+     rounded-[1rem]">
      <td className="md:py-3 md:px-6 text-[1.04rem]
           font-semibold text-primary
           md:truncate md:max-w-[3rem] 
@@ -31,11 +32,11 @@ function LeftSide({companylist , HandleEdit , HandleDelete}) {
           flex flex-col items-center md:table-cell
           before:text-[1.08rem] 
           before:font-semibold before:text-secondary" 
-          title={'Company Employee : ' + " " + index.Employee}> {index.Employee} </td>
+          title={'Company Employee : ' + " " + index.Employee}> {Number(index.Employee)} </td>
      <td className="flex gap-6 items-center
           justify-end mt-[0.025rem]
           md:px-2 md:py-3 md:pr-8 md:w-[9rem] break-all
-          py-[1rem] md:py-[0]"> 
+          py-[1rem]"> 
           <div onClick={(event) => HandleEdit(event.target.parentElement.parentElement)}>
                <svg className="relative z-[-1]" width="24" height="24" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13.2802 2.92206L16.2556 6.09377C16.3809 6.22739 16.3809 6.4454 16.2556 6.57902L9.05139 14.2586L5.99028 14.6208C5.58125 14.6701 5.2349 14.3008 5.28108 13.8648L5.62083 10.6017L12.825 2.92206C12.9503 2.78844 13.1549 2.78844 13.2802 2.92206ZM18.624 2.11682L17.0142 0.40086C16.5128 -0.13362 15.6981 -0.13362 15.1934 0.40086L14.0257 1.64563C13.9003 1.77925 13.9003 1.99727 14.0257 2.13089L17.001 5.3026C17.1264 5.43622 17.3309 5.43622 17.4563 5.3026L18.624 4.05782C19.1253 3.51983 19.1253 2.6513 18.624 2.11682ZM12.6667 12.17V15.7496H2.11111V4.49736H9.69132C9.79688 4.49736 9.89583 4.45165 9.9717 4.37429L11.2911 2.96777C11.5418 2.70053 11.3637 2.24692 11.0108 2.24692H1.58333C0.709201 2.24692 0 3.00293 0 3.93475V16.3122C0 17.244 0.709201 18 1.58333 18H13.1944C14.0686 18 14.7778 17.244 14.7778 16.3122V10.7634C14.7778 10.3872 14.3523 10.2008 14.1016 10.4645L12.7821 11.8711C12.7095 11.9519 12.6667 12.0574 12.6667 12.17Z" fill="#20486A"/>
@@ -51,7 +52,8 @@ function LeftSide({companylist , HandleEdit , HandleDelete}) {
      ) ; 
      return (
           <div className="flex flex-col gap-8 p-4">
-               <div className="flex flex-col gap-1 p-4 bg-gray-200">
+               <div className="flex flex-col gap-1 p-4 bg-gray-200
+               text-center md:text-left rounded-[.5rem]">
                     <h1 className="text-primary text-2xl font-bold">
                          Company Directory
                     </h1>
@@ -60,7 +62,8 @@ function LeftSide({companylist , HandleEdit , HandleDelete}) {
                          And See Details
                     </p>
                </div>
-               <table className="border-collapse border-2">
+               <table className="border-collapse border-2 rounded-[.5rem] border-hidden
+               shadow-tabel">
                     <thead className="bg-gray-100 
                          border-t-2 border-b-2 hidden md:contents">
                          <tr>
