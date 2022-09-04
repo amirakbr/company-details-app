@@ -40,9 +40,12 @@ function App() {
   function HandleDelete(a){
     companylist.splice(Number(a.id) , 1) ; 
     setCompanyList([...companylist]) ; 
+    setCompanyName('') ; 
+    setCompanyLoc('') ; 
+    setCompanyEmployee('') ; 
   }
   return (
-    <div className="min-h-screen grid grid-cols-[1fr_2.5fr]">
+    <div className="min-h-screen grid grid-cols-[1fr] lg:grid-cols-[1fr_2.5fr]">
       <SearchBlock 
           setCompanyName = {setCompanyName}
           setCompanyLoc = {setCompanyLoc}
