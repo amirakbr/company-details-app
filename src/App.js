@@ -37,6 +37,10 @@ function App() {
       setCompanyEmployee('') ; 
       setOnStageEdit() ; 
   }
+  function HandleDelete(a){
+    companylist.splice(Number(a.id) , 1) ; 
+    setCompanyList([...companylist]) ; 
+  }
   return (
     <div className="min-h-screen grid grid-cols-[1fr_2.5fr]">
       <SearchBlock 
@@ -52,8 +56,9 @@ function App() {
           ConfirmEdites = {ConfirmEdites}
           />
       <LeftSide 
-          companylist ={companylist}
-          HandleEdit={HandleEdit}
+          companylist = {companylist}
+          HandleEdit = {HandleEdit}
+          HandleDelete = {HandleDelete}
              />
     </div>
   );
