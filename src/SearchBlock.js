@@ -45,7 +45,7 @@ function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , com
                          Manage Your Company
                     </p>
                </div>
-               <div className="search--form p-4">
+               <div className="search--form p-4 sticky top-[0px]">
                     <form onSubmit={(event) => {event.preventDefault()}} className="flex flex-col gap-4">
                          {inputsEntriesShow}
                          <button onClick={() => {Number(onStageEdit) >= 0 ? ConfirmEdites(Number(onStageEdit)) : HandleInputs()}} type="submit" className="text-white bg-primary w-full p-2 rounded-lg " >

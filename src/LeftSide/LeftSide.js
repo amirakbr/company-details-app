@@ -1,6 +1,6 @@
 function LeftSide({companylist , HandleEdit , HandleDelete}) {
      let listShow = companylist.map((index)=> index.Name.length >= 1 ? <tr id={companylist.indexOf(index)} className="border-t-2 
-     border-b-2 flex flex-col items-center md:table-row
+     flex flex-col items-center md:table-row
      md:px-[0rem] px-[1rem]
      rounded-[1rem]">
      <td className="md:py-3 md:px-6 text-[1.04rem]
@@ -62,7 +62,7 @@ function LeftSide({companylist , HandleEdit , HandleDelete}) {
                          And See Details
                     </p>
                </div>
-               <table className="border-collapse border-2 rounded-[.5rem] border-hidden
+               <table className="border-collapse border-b-2 rounded-[1rem_1rem_0rem_0rem]
                shadow-tabel">
                     <thead className="bg-gray-100 
                          border-t-2 border-b-2 hidden md:contents">
