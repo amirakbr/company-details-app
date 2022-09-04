@@ -1,4 +1,5 @@
-function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , companyName , companyLoc , companyEmployee , HandleInputs , companylist , onStageEdit , ConfirmEdites}) {
+function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , companyName , companyLoc , companyEmployee , HandleInputs , companylist , onStageEdit , ConfirmEdites
+, setErrorCatcher}) {
      const inputsEntries = [
           {
                key : 'input1' , 
@@ -30,14 +31,14 @@ function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , com
           inputsEntriesShow.push(
                <label className="flex flex-col gap-2 text-primary text-lg font-semibold " key={index.key} >
                     {index.title}
-                    <input type='text' onChange={(e) => {index.type(e.target.value)}} onKeyPress={index.validation()} value={index.value} placeholder={index.placeholder} className="border-2 p-2 rounded-lg text-base font-medium text-secondary placeholder:text-secondary " />
+                    <input type='text' onChange={(e) => {index.type(e.target.value)}} onKeyPress={index.validation()} value={index.value} placeholder={index.placeholder} className="border-[.15rem solid #ccd0d9] p-2 rounded-lg text-base font-medium text-secondary placeholder:text-secondary" style={{border : Number(onStageEdit) >= 0 ? '.15rem solid #20486A' : '.15rem solid #ccd0d9' }} />
                </label>
           )
      })
      return (
-          <div className="flex flex-col gap-8 p-4">
-               <div className="flex flex-col gap-1 p-4 bg-gray-200
-               text-center md:text-left rounded-[.5rem]">
+          <div className="flex flex-col gap-8 bg-white py-4 rounded-lg">
+               <div className="flex flex-col gap-1
+               text-center md:text-left p-4">
                     <h1 className="text-primary text-2xl font-bold">
                          Add New Item
                     </h1>
@@ -46,9 +47,19 @@ function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , com
                     </p>
                </div>
                <div className="search--form p-4 sticky top-[0px]">
-                    <form onSubmit={(event) => {event.preventDefault()}} className="flex flex-col gap-4">
+                    <form onSubmit={(event) => {event.preventDefault()}} 
+                          onKeyPress={(event) => {
+                              event.key === "Enter" &&
+                              Number(onStageEdit) >= 0 ?
+                              ConfirmEdites(Number(onStageEdit)) :
+                              event.key === "Enter" &&
+                              !(Number(onStageEdit) >= 0) ?
+                              HandleInputs() :
+                              setErrorCatcher(0)
+                          }}
+                    className="flex flex-col gap-4">
                          {inputsEntriesShow}
-                         <button onClick={() => {Number(onStageEdit) >= 0 ? ConfirmEdites(Number(onStageEdit)) : HandleInputs()}} type="submit" className="text-white bg-primary w-full p-2 rounded-lg " >
+                         <button onClick={() => {Number(onStageEdit) >= 0 ? ConfirmEdites(Number(onStageEdit)) : HandleInputs()}} type="submit" className="text-white text-lg font-semibold bg-primary w-full p-2 rounded-lg hover:bg-[#3d79a1]" >
                               Sumbit
                          </button>
                     </form>

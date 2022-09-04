@@ -2,7 +2,8 @@ function LeftSide({companylist , HandleEdit , HandleDelete}) {
      let listShow = companylist.map((index)=> index.Name.length >= 1 ? <tr id={companylist.indexOf(index)} className="border-t-2 
      flex flex-col items-center md:table-row
      md:px-[0rem] px-[1rem]
-     rounded-[1rem]">
+     rounded-[1rem] animate-appear
+     hover:bg-thirdary class">
      <td className="md:py-3 md:px-6 text-[1.04rem]
           font-semibold text-primary
           md:truncate md:max-w-[3rem] 
@@ -51,9 +52,9 @@ function LeftSide({companylist , HandleEdit , HandleDelete}) {
 </tr> : true
      ) ; 
      return (
-          <div className="flex flex-col gap-8 p-4">
-               <div className="flex flex-col gap-1 p-4 bg-gray-200
-               text-center md:text-left rounded-[.5rem]">
+          <div className="flex flex-col gap-8 bg-white py-4 rounded-lg">
+               <div className="flex flex-col gap-1 p-4
+               text-center md:text-left">
                     <h1 className="text-primary text-2xl font-bold">
                          Company Directory
                     </h1>
@@ -62,18 +63,17 @@ function LeftSide({companylist , HandleEdit , HandleDelete}) {
                          And See Details
                     </p>
                </div>
-               <table className="border-collapse border-b-2 rounded-[1rem_1rem_0rem_0rem]
-               shadow-tabel">
+               <table className="border-collapse">
                     <thead className="bg-gray-100 
                          border-t-2 border-b-2 hidden md:contents">
-                         <tr>
-                              <td className="py-2 px-2 pl-6 text-[1.08rem] font-semibold text-secondary truncate max-w-[3rem]">NAME</td>
+                         <tr className="bg-[#F8F9FD]">
+                              <td className="py-3 px-2 pl-6 text-[1.08rem] font-semibold text-secondary truncate max-w-[3rem]">NAME</td>
                               <td className="py-2 px-2 text-[1.08rem] font-semibold text-secondary truncate max-w-[3.5rem]">STATE</td>
                               <td className="py-2 px-2 text-[1.08rem] font-semibold text-secondary w-[8rem]">EMPLOYEES</td>
                               <td className="py-2 px-2 pr-6 text-[1.08rem] font-semibold text-secondary w-[9rem]"></td>
                          </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="relative z-[+1]">
                          {listShow}
                     </tbody>
                </table>

@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       colors : {
         'primary' : '#20486A' , 
-        'secondary' : '#6c6f75'
+        'secondary' : '#6c6f75' , 
+        'thirdary' : '#ebf2f7' , 
       } , 
       screens : {
         'lg' : '1000px' , 
@@ -15,6 +16,15 @@ module.exports = {
       } , 
       boxShadow : {
         'tabel' : '0 0 0 .05rem black' , 
+      } , 
+      keyframes: {
+        appear: {
+          '0%': { opacity : 0 },
+          '100%': { opacity : 1 },
+        }
+      } , 
+      animation: {
+        appear : 'appear .5s linear forwards',
       }
     },
   },

@@ -7,6 +7,7 @@ function App() {
   const [companyEmployee , setCompanyEmployee] = useState('') ; 
   const [companylist , setCompanyList] = useState([]) ; 
   const [onStageEdit , setOnStageEdit] = useState() ; 
+  const [ErrorCatcher , setErrorCatcher] = useState() ; 
   function HandleInputs() {
     if(companyName.length >=1 && companyLoc.length >=1 
       && companyEmployee.length >=1 ) {
@@ -45,7 +46,7 @@ function App() {
     setCompanyEmployee('') ; 
   }
   return (
-    <div className="min-h-screen grid grid-cols-[1fr] lg:grid-cols-[1fr_2.5fr]">
+    <div className="min-h-screen grid grid-cols-[1fr] lg:grid-cols-[1fr_2fr] gap-[2rem] p-[2%] bg-[#F8F9FD] ">
       <SearchBlock 
           setCompanyName = {setCompanyName}
           setCompanyLoc = {setCompanyLoc}
@@ -57,11 +58,13 @@ function App() {
           companylist = {companylist}
           onStageEdit = {onStageEdit}
           ConfirmEdites = {ConfirmEdites}
+          setErrorCatcher = {setErrorCatcher}
           />
       <LeftSide 
           companylist = {companylist}
           HandleEdit = {HandleEdit}
           HandleDelete = {HandleDelete}
+          onStageEdit = {onStageEdit}
              />
     </div>
   );
