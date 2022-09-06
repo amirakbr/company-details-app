@@ -41,8 +41,9 @@ function App() {
       setOnStageEdit() ; 
   }
   function handleDelete(a){
-    companylist.splice(Number(a.id) , 1) ; 
-    setCompanyList([...companylist]) ; 
+    const newCompanyList = [...companylist] ; 
+    newCompanyList.splice(Number(a.id) , 1) ; 
+    setCompanyList([...newCompanyList]) ; 
     setCompanyName('') ; 
     setCompanyLoc('') ; 
     setCompanyEmployee('') ; 
