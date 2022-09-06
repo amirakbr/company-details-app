@@ -2,7 +2,6 @@ function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , com
 , setErrorCatcher}) {
      const inputsEntries = [
           {
-               key : 'input1' , 
                title : 'Company name:' , 
                placeholder : 'e.g Netflix, Inc' , 
                setter : setCompanyName ,
@@ -11,7 +10,6 @@ function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , com
                type : 'text'
           },
           {
-               key : 'input2' , 
                title : 'Company state:' , 
                placeholder : 'e.g Florida' , 
                setter : setCompanyLoc , 
@@ -20,7 +18,6 @@ function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , com
                type : 'text'
           },
           {
-               key : 'input3' , 
                title : 'Company employeed:' , 
                placeholder : 'e.g 20,345' , 
                setter : setCompanyEmployee , 
@@ -30,9 +27,9 @@ function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , com
           }
      ]
      const inputsEntriesShow = [] ; 
-     inputsEntries.forEach((index) => {
+     inputsEntries.map((index,id) => {
           inputsEntriesShow.push(
-               <label className="flex flex-col gap-2 text-primary text-lg font-semibold " key={index.key} >
+               <label className="flex flex-col gap-2 text-primary text-lg font-semibold " key={id} >
                     {index.title}
                     <input type={index.type} onChange={(e) => {index.setter(e.target.value)}} onKeyPress={index.validation()} value={index.value} placeholder={index.placeholder} className="border-[.15rem solid #ccd0d9] p-2 rounded-lg text-base font-medium text-secondary placeholder:text-secondary" style={{border : Number(onStageEdit) >= 0 ? '.15rem solid #20486A' : '.15rem solid #ccd0d9' }} />
                </label>
