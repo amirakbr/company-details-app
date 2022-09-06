@@ -7,8 +7,10 @@ function App() {
   const [companyEmployee , setCompanyEmployee] = useState('') ; 
   const [companylist , setCompanyList] = useState([]) ; 
   const [onStageEdit , setOnStageEdit] = useState() ; 
+  
+  
   const [ErrorCatcher , setErrorCatcher] = useState() ; 
-  function HandleInputs() {
+  function handleInputs() {
     if(companyName.length >=1 && companyLoc.length >=1 
       && companyEmployee.length >=1 ) {
         setCompanyList([...companylist , {
@@ -21,13 +23,13 @@ function App() {
         setCompanyEmployee('') ; 
       }
   }
-  function HandleEdit(a) {
-    setOnStageEdit(a.id) ; 
-    setCompanyName(a.children[0].innerText) ; 
-    setCompanyLoc(a.children[1].innerText) ; 
-    setCompanyEmployee(a.children[2].innerText) ; 
+  function handleEdit(a) {
+    setOnStageEdit(a) ; 
+    setCompanyName(companylist[a].Name) ; 
+    setCompanyLoc(companylist[a].State) ; 
+    setCompanyEmployee(companylist[a].Employee) ; 
   }
-  function ConfirmEdites(a) {
+  function confirmEdites(a) {
       companylist[a] = {
         Name : companyName , 
         State : companyLoc , 
@@ -38,7 +40,7 @@ function App() {
       setCompanyEmployee('') ; 
       setOnStageEdit() ; 
   }
-  function HandleDelete(a){
+  function handleDelete(a){
     companylist.splice(Number(a.id) , 1) ; 
     setCompanyList([...companylist]) ; 
     setCompanyName('') ; 
@@ -54,16 +56,16 @@ function App() {
           companyName = {companyName}
           companyLoc = {companyLoc}
           companyEmployee = {companyEmployee}
-          HandleInputs = {HandleInputs}
+          handleInputs = {handleInputs}
           companylist = {companylist}
           onStageEdit = {onStageEdit}
-          ConfirmEdites = {ConfirmEdites}
+          confirmEdites = {confirmEdites}
           setErrorCatcher = {setErrorCatcher}
           />
       <LeftSide 
           companylist = {companylist}
-          HandleEdit = {HandleEdit}
-          HandleDelete = {HandleDelete}
+          handleEdit = {handleEdit}
+          handleDelete = {handleDelete}
           onStageEdit = {onStageEdit}
              />
     </div>

@@ -1,4 +1,6 @@
-function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , companyName , companyLoc , companyEmployee , HandleInputs , companylist , onStageEdit , ConfirmEdites
+function SearchBlock ({setCompanyName , setCompanyLoc 
+, setCompanyEmployee , companyName , companyLoc 
+, companyEmployee , handleInputs , onStageEdit , confirmEdites
 , setErrorCatcher}) {
      const inputsEntries = [
           {
@@ -42,10 +44,10 @@ function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , com
                           onKeyPress={(event) => {
                               event.key === "Enter" &&
                               Number(onStageEdit) >= 0 ?
-                              ConfirmEdites(Number(onStageEdit)) :
+                              confirmEdites(Number(onStageEdit)) :
                               event.key === "Enter" &&
                               !(Number(onStageEdit) >= 0) ?
-                              HandleInputs() :
+                              handleInputs() :
                               setErrorCatcher(0)
                           }}
                     className="flex flex-col gap-4">
@@ -55,7 +57,7 @@ function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , com
                                         <input type={index.type} onChange={(e) => {index.setter(e.target.value)}} onKeyPress={index.validation()} value={index.value} placeholder={index.placeholder} className="border-[.15rem solid #ccd0d9] p-2 rounded-lg text-base font-medium text-secondary placeholder:text-secondary" style={{border : Number(onStageEdit) >= 0 ? '.15rem solid #20486A' : '.15rem solid #ccd0d9' }} />
                                    </label>
                               )}
-                         <button onClick={() => {Number(onStageEdit) >= 0 ? ConfirmEdites(Number(onStageEdit)) : HandleInputs()}} type="submit" className="text-white text-lg font-semibold bg-primary w-full p-2 rounded-lg hover:bg-[#3d79a1]" >
+                         <button onClick={() => {Number(onStageEdit) >= 0 ? confirmEdites(Number(onStageEdit)) : handleInputs()}} type="submit" className="text-white text-lg font-semibold bg-primary w-full p-2 rounded-lg hover:bg-[#3d79a1]" >
                               Sumbit
                          </button>
                     </form>
