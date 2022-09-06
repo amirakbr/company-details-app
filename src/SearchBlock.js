@@ -26,15 +26,6 @@ function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , com
                type : 'number'
           }
      ]
-     const inputsEntriesShow = [] ; 
-     inputsEntries.map((index,id) => {
-          inputsEntriesShow.push(
-               <label className="flex flex-col gap-2 text-primary text-lg font-semibold " key={id} >
-                    {index.title}
-                    <input type={index.type} onChange={(e) => {index.setter(e.target.value)}} onKeyPress={index.validation()} value={index.value} placeholder={index.placeholder} className="border-[.15rem solid #ccd0d9] p-2 rounded-lg text-base font-medium text-secondary placeholder:text-secondary" style={{border : Number(onStageEdit) >= 0 ? '.15rem solid #20486A' : '.15rem solid #ccd0d9' }} />
-               </label>
-          )
-     })
      return (
           <div className="flex flex-col gap-8 bg-white py-4 rounded-lg ">
                <div className="flex flex-col gap-1
@@ -58,7 +49,12 @@ function SearchBlock ({setCompanyName , setCompanyLoc , setCompanyEmployee , com
                               setErrorCatcher(0)
                           }}
                     className="flex flex-col gap-4">
-                         {inputsEntriesShow}
+                         {inputsEntries.map((index , id) => 
+                                   <label className="flex flex-col gap-2 text-primary text-lg font-semibold " key={id} >
+                                        {index.title}
+                                        <input type={index.type} onChange={(e) => {index.setter(e.target.value)}} onKeyPress={index.validation()} value={index.value} placeholder={index.placeholder} className="border-[.15rem solid #ccd0d9] p-2 rounded-lg text-base font-medium text-secondary placeholder:text-secondary" style={{border : Number(onStageEdit) >= 0 ? '.15rem solid #20486A' : '.15rem solid #ccd0d9' }} />
+                                   </label>
+                              )}
                          <button onClick={() => {Number(onStageEdit) >= 0 ? ConfirmEdites(Number(onStageEdit)) : HandleInputs()}} type="submit" className="text-white text-lg font-semibold bg-primary w-full p-2 rounded-lg hover:bg-[#3d79a1]" >
                               Sumbit
                          </button>
